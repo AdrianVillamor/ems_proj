@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Event Details
+{% endblock %}
+
+{% block content %}
+<div class="card mt-2" >
+        <div class="card-header bg-dark">
+          Event Details
+        </div>
+        <div class="card-body"style="background-color:white;color: black">
+             <h4 class="card-title"> {{ event.name }}</h4>
+             <p class="card-text"> 
+                {{ event.date_from }} - {{ event.date_to }}
+                {{ event.time_from }} - {{ event.time_to }}
+            </p>
+             <p class="card-text "> Venue:
+              {{ event.venue }}
+            </p>
+        
+            <p class="card-text"> Max Slots:
+                {{ event.max_slots }}
+            </p>
+
+             <p class="card-text"> 
+                {{ event.description }}
+            </p>
+        </div>
+</div>
+
+
+{% endblock %}
