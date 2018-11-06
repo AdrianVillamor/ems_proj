@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    LogIn
+    Sign Up
 {% endblock %}
 
 
@@ -10,13 +10,13 @@
 <div class="col-md-6 mx-auto">
     <div class="card" style="color:black; background-color: rgb(248, 248, 248); margin-top: 20px">
         <div class="card-header" style="background-color: steelblue;color: white;text-align: center;font-size: 50px">
-          Log In
+          Sign Up
         </div>
         <div class="card-body">
             <form method="post" action="">
                 {% csrf_token %}
                 {{ form | crispy }}
-                 <button type="submit" class="btn btn-primary">LogIn</button>
+                 <button type="submit" class="btn btn-primary">Sign Up</button>
             
             </form>
         </div>
