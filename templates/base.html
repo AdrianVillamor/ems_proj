@@ -28,6 +28,14 @@
                     <li class="nav-item active">
                       <a class="nav-link" href="{% url 'event_list' %}">Events</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'myevent_list' %}">My Events</a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'myevent_list' %}">My Activities</a>
+                    </li>
+                    {% endif %}
                   </ul>
                   {% if user.is_authenticated %}
                     <div class="btn-group">
@@ -35,17 +43,18 @@
                         {{ user.username }}
                         </button>
                         <div class="dropdown-menu dropdown-menu-right">
-                         <a href="{% url 'logout' %}"> 
+                        <a href="{% url 'logout' %}"> 
                              <button class="dropdown-item" type="button">Logout</button>
-                        </a> 
+                        </a>
                         </div>
                     </div>
                     {% else %}
+                    <a href="{% url 'signup' %}">
+                      <button type="button" class="btn btn-outline-info ">Sign Up</button>
+                    </a>
+
                     <a href="{% url 'login' %}">
-                        <button type="button" class="btn btn-outline-light">LogIn</button>
-                     </a>
-                     <a href="{% url 'signup' %}">
-                        <button type="button" class="btn btn-outline-light ml-2">Sign Up</button>
+                        <button type="button" class="btn btn-outline-light ml-2">LogIn</button>
                      </a>
                     {% endif %}
                 </div>

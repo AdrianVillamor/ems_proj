@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}
+
+All events
+
+{% endblock %}
+
+
+{% block content %}
+<style> 
+.card-header { color:white; }
+
+</style>
+
+
+<div class="card mt-2 " style="color: black;">
+    <div class="card-header bg-dark" style="font-size: 50px; text-align: center">
+        All Events
+        <a href = "{% url 'event_create' %}" class = "btn btn-primary float-right"> Add New </a>
+    </div>
+        <div class="card-body">
+            
+                <div class="card-columns">
+                    {% for event in event_list %}
+
+                        <div class="card p-3">
+                          <div class="card-header" style="color:black">
+                                {{ event.name }}
+                        </div>
+
+                        <div class="card-body">
+                            <small>{{ event.date_from }} - {{ event.date_to }} at {{ event.venue }} </small>
+                            <p class="mb-1">{{ event.description | slice:":1000" }}...</p>
+                        </div>
+
+                        <div class="card-footer">
+                            <a href="{% url 'event_detail' event.pk %}" class="btn btn-primary"> More Details </a>
+                        </div>
+
+                        <div class="card-footer">
+                                <a href="{% url 'event_update' event.pk %}" class="btn btn-warning">Update </a>
+                        </div>
+                </div>
+                    
+                        {% endfor %}
+        </div>
+        
+</div>
+      
+{% endblock %}
