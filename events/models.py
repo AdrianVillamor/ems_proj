@@ -19,8 +19,8 @@ class Event(models.Model):
 
     creator = models.ForeignKey(to="users.Participant", on_delete = models.CASCADE)
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
-def get_absolute_url(self):
-    return reverse("event_detail", args=[str(self.pk)])
+    def get_absolute_url(self):
+        return reverse("event_detail", args=[str(self.pk)])

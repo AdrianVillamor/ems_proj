@@ -1,0 +1,15 @@
+<h1>{{ Event }}</h1>
+
+<ul>
+{% for registration in registration_list %}    
+    <li>
+        {{ registration.participant.username }} {{ registration.participant.email }} 
+        ({{ registration.parents_permit }}, {{ registration.waiver }})
+    </li>
+
+{% empty %}
+
+There are no participants for this event at the moment
+
+{% endfor %}
+</ul>
